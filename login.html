@@ -1,6 +1,19 @@
 <html><head>
     
     <title>Sign up or sign in</title>
+    <script type="text/javascript">
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        window.onload = function() {
+            const appName = getQueryParameter('appName');
+            if (appName) {
+                document.getElementById('appNameDisplay').innerText = appName;
+            }
+        };
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,7 +144,7 @@
                     <div class="panel-body">
                         <img class="companyLogo" data-tenant-branding-logo="true" src="https://syskeyotx.b2clogin.com/static/tenant/templates/images/logo.svg" alt="Company Logo">
 						<div> 
-						<h2> Welcome to syskey</h2>
+                            <h1>Welcome to <span id="appNameDisplay">Your Application</span></h1>
 						</div>
                         <div id="api" role="main">
                         </div>
